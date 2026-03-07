@@ -1,0 +1,20 @@
+- name: Variables Preference checking
+  hosts: local
+  connection: local
+  vars:
+    NAME: Preferred from Play
+  vars_files:
+  - variables.yaml
+  vars_prompt:
+  - name: NAME
+    prompt: Enter your name
+    private: false
+  tasks:
+  - name: print name
+    vars:
+    - NAME: Preferred from Task
+    ansible.builtin.debug:
+      msg: "Hi {{ NAME }}"
+
+
+
