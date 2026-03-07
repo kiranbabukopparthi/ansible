@@ -1,0 +1,11 @@
+while creating instance in AWS -if we go to advanced options
+we have option called user data. Here we can directly install ansible if we need
+dnf install ansible -y
+Here by default it will take sudo access.
+
+we can access the variables using arguments
+refer playbook9.YAML
+Here we haven't given NAME variable anywhere in the playbook or inventory or in any file.
+Here we are trying to take the variable in run time from user
+
+command below
