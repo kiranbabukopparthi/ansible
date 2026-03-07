@@ -1,12 +1,31 @@
-- name: Demo on LOOPS
+# program -1
+
+# - name: Demo on LOOPS
+#   hosts: local
+#   connection: local
+#   tasks:
+#   - name: print names
+#     ansible.builtin.debug:
+#       msg: "Hello {{ item }}"   # here item is reserved keyword from ansible
+#     loop:
+#     - janu
+#     - prassu
+#     - jai
+
+
+# program-2
+
+- name: Installing packages
   hosts: local
   connection: local
   tasks:
-  - name: print names
-    ansible.builtin.debug:
-      msg: "Hello {{ item }}"
+  - name: install packages
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
     loop:
-    - janu
-    - prassu
-    - jai
+    - mysql
+    - nginx
+    - zip
+
     
