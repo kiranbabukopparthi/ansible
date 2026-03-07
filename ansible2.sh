@@ -171,6 +171,46 @@ To print anything, refer playbook2.yaml
 
 To install anything refer playbook3.yaml
 
+Here in playbook3, we use ansible.builtin.package command to install nginx
+But ngix is available in RHEL, it looks for yum or dnf for installation
+In this case, in gathering facts step, the ansible converts the builtin command into dnf (while installing)
+If we run in ubuntu, then it will convert builtin command to app install
+
+so this feature makes the ansible as hetrogenous.
+which means same code can run in different platforms
+
+
+To start the application we have builtin caled service
+ansbile builtin service
+
+refer playbook3.yaml
+
+Playbook is a list of tasks that can be executed against any server as part of configuration management
+
+
+Variables
+There are different types of variables
+1. play level variables
+
+if we give like in this inventory
+[local]
+localhost
+
+If we give like this, then the server will be lcoalhost
+In this case, we don't have need to give username and password.
+refer plabook4.yaml
+
+To run the playbook4
+ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 playbook4.yaml
+
+Here we use lcoal host, so no need to give username and password. 
+we can run playbook4 like below also
+ansible-playbook -i inventory.ini playbook4.yaml
+
+we can define the variables with command/module called vars
+To access the variables we use double flower braces {{ variable_name }}
+
+
 
 
 
