@@ -4,7 +4,7 @@
   vars_files:
   - variables.yaml
   tasks:
-  - name: Variables Accessing and print them
+  - name: Access and print variables
     vars:
       COURSE: Ansible
     ansible.builtin.debug:
