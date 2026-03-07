@@ -169,4 +169,8 @@ like which distribution, which OS, IP, Network info etc.. That is gathering fact
 
 To print anything, refer playbook2.yaml
 
+To install anything refer playbook3.yaml
+
+
+
 
