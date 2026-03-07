@@ -200,7 +200,7 @@ If we give like this, then the server will be lcoalhost
 In this case, we don't have need to give username and password.
 refer plabook4.yaml
 
-To run the playbook4
+To run the playbook4.yaml
 ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 playbook4.yaml
 
 Here we use lcoal host, so no need to give username and password. 
@@ -209,6 +209,36 @@ ansible-playbook -i inventory.ini playbook4.yaml
 
 we can define the variables with command/module called vars
 To access the variables we use double flower braces {{ variable_name }}
+
+
+2. Task level variables
+These can be defined in task level, which means it is local tp its task.
+if we declare variables as play level variables then those can be accessed glocally in entire playbook
+if the variable declared inside the task, it is accessed within that task
+refer playbook5.yaml
+Here course is accessed in task level and duration is accessed in play level
+
+
+we can also keep the variables in a seperate file can access them
+we need to a new yaml file and define the required variables.
+Those can be accessed in another yaml file using command
+vars_files:
+- <variables_file_name>
+
+vars_files:
+- variables.yaml
+
+we can read the end user input using command
+vars_prompt:
+- name: username
+  prompt: please enter your username
+  private: false
+
+
+Here we are reading user data in username varibale.
+Private is true means, hide the user input while he is typing 
+private is false means, display the user input while he is writing (normally)
+
 
 
 
