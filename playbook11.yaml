@@ -3,7 +3,9 @@
   connection: local
   tasks:
   - name: command module test 
-    ansible.builtin.command: cat /etc/passwd | grep root
+    # ansible.builtin.command: cat /etc/passwd | grep root
+    # here command module won't support grep or redirections. so we will get error
+    ansible.builtin.shell: cat /etc/passwd | grep root
     registor: users_output
 
   - name: print the output
