@@ -135,6 +135,7 @@ the system using  API
 Ansible handles YAML format easily.
 
 consider a server in inventory and we are trying to ping that server using playbook
+
 playbook1.yaml
 - name: ping your server
   hosts: web
@@ -142,7 +143,30 @@ playbook1.yaml
   - name: ping the web server
     ansible.builtin.ping:
 
+Here in the inventory, we add web (similar like frontend) and paste the node1 private Ip address
+when this playbook is executed, it will go to inventory and look for web and ping the server in the web
+
 command to run the script
-ansible-playbook -i inventory.ini -e anisble_user=ec2-user -e ansible_password=DevOps321 playbook1.yaml
+ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 playbook1.yaml
+
+we will get result like
+[ ec2-user@ip-172-31-73-89 ~/ansible ]$ ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 playbook1.yaml
+
+PLAY [ping your server] *********************************************************************************
+
+TASK [Gathering Facts] **********************************************************************************
+ok: [172.31.71.229]
+
+TASK [ping the web server] ******************************************************************************
+ok: [172.31.71.229]
+
+PLAY RECAP **********************************************************************************************
+172.31.71.229              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0 
+
+Here gathering facts means variables. 
+Before connecting to the server, ansible will gather all the information about that server
+like which distribution, which OS, IP, Network info etc.. That is gathering facts
+
+To print anything, refer playbook2.yaml
 
 
