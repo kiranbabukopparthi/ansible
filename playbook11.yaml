@@ -11,3 +11,16 @@
   - name: print the output
     ansible.builtin.debug:
       msg: "{{ users_output }}" 
+
+  - name: command module test 
+    # ansible.builtin.command: cat /etc/passwd | grep root
+    # here command module won't support grep or redirections. so we will get error
+    ansible.builtin.shell: ls -ltr > file.txt
+    register: files_output
+
+  - name: print the output of files
+    ansible.builtin.debug:
+      msg: "{{ files_output }}" 
+
+
+      
