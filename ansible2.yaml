@@ -238,6 +238,15 @@ vars_prompt:
 Here we are reading user data in username varibale.
 Private is true means, hide the user input while he is typing 
 private is false means, display the user input while he is writing (normally)
+refer playbook7.yaml
+
+we can pass the variables info into inventory as well and access them.
+Go to inventory and give 
+[local:vars]
+COURSE=Ansible from inventory
+
+refer playbook8.yaml
+
 
 
 
