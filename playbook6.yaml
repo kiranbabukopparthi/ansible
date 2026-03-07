@@ -1,0 +1,11 @@
+- name: Accessing variables from another file
+  hosts: local
+  connection: local
+  vars_files:
+  - variables.yaml
+  tasks:
+  - name: Variables Accessing and print them
+    vars:
+      COURSE: Ansible
+    ansible.builtin.debug:
+      msg: "COURSE is : {{ COURSE }}, DURATION is : {{ DURATION }}, TRAINER is : {{ TRAINER }}"
