@@ -1,12 +1,27 @@
-- name: Demo on conditions
+#program-1
+
+# - name: Demo on conditions
+#   hosts: local
+#   connection: local
+#   vars:
+#     IS_LIVE: true
+#   tasks:
+#   - name: check live or not
+#     ansible.builtin.debug:
+#       msg: "Yes, it is Live"
+#     when: IS_LIVE
+   
+    
+#program-2
+
+- name: check the number is less than 10 or not
   hosts: local
   connection: local
   vars:
-    IS_LIVE: true
+    NUMBER: 10
   tasks:
-  - name: check live or not
+  - name: Checking 
     ansible.builtin.debug:
-      msg: "Yes, it is Live"
-    when: IS_LIVE
-   
-    
+      msg: "No, Less than 10"
+    when: NUMBER > 5
+
