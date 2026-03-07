@@ -19,6 +19,6 @@
         Program: {{ PROGRAM }}
         Duration: {{ DURATION }}
         Is_Live: {{ IS_LIVE }}
-        Details: {{ DEATILS }}
+        Details: {{ DETAILS }}
         Topics: {{ TOPICS }}
         
