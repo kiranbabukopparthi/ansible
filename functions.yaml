@@ -59,7 +59,8 @@
   connection: local
   vars:
     course: "DevOps with AWS"
-    myip: 246.277.377.91
+    myip1: 246.277.377.91
+    myip2: 192.34.32.123
     topics: linux, shell, ansible, terraform
     tagsmap:
       name: ansible
@@ -115,4 +116,8 @@
 
   - name: check ipv4
     ansible.builtin.debug:
-      msg: "{{ myip | ansible.utils.ipv4 }}"
+      msg: "{{ myip1 | ansible.utils.ipv4 }}"
+
+  - name: check ipv4
+    ansible.builtin.debug:
+      msg: "{{ myip2 | ansible.utils.ipv4 }}"
