@@ -15,20 +15,34 @@
 
 # program-2
 
-- name: Demo on error handling
+# - name: Demo on error handling
+#   hosts: local
+#   connection: local
+#   become: yes
+#   tasks:
+#   - name: check user exist or not
+#     ansible.builtin.command: id roboshop
+#     register: user_output
+#     ignore_errors: true
+
+#   - name: print the output
+#     ansible.builtin.debug:
+#       msg: "{{ user_output }}"
+
+#   - name: create user
+#     ansible.builtin.command: useradd roboshop
+#     when: user_output.rc != 0
+
+
+
+# program-3
+
+- name: check idempotency
+  become: yes
   hosts: local
   connection: local
-  become: yes
   tasks:
-  - name: check user exist or not
-    ansible.builtin.command: id roboshop
-    register: user_output
-    ignore_errors: true
-
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "{{ user_output }}"
-
-  - name: create user
-    ansible.builtin.command: useradd roboshop
-    when: user_output.rc != 0
+  - name: user creation
+    ansible.builtin.user:
+      name: john
+  
