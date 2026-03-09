@@ -1,0 +1,23 @@
+- name: "prassu"
+  dob: 2001-05-08
+  mobilenumber: 123456789
+  Addresses:
+  - flat: 105
+    city: Hyderabad
+    type: permenent
+
+  - flat: 105
+    city: Hyderabad
+    type: current
+
+- name: "kiran"
+  dob: 1998-09-27
+  mobilenumber: 123456789
+  Addresses:
+  - flat: 96
+    city: Hyderabad
+    type: permenent
+
+  - flat: 96
+    city: Hyderabad
+    type: current
