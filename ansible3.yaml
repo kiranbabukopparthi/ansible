@@ -119,3 +119,25 @@ filter syntax
 VAR_NAME | FILTER_NAME
 
 Here VAR_NAME is input for FILTER_NAME
+
+Ansible makes variables optional. If you haven't defined variable and used it in the script, we will get error
+This can be avoided by giving default value
+msg: "Hi kiran, {{ GREETINGS | default('Good Morning') }} "
+
+Here GREETINGS is undefined variable, so we have given default value Good Morning.
+so instead of getting error, we will get Good Morning
+
+split is used to seperate the string.
+Its default value is space (when you don't give any value then it will split the data using space between them)
+
+There are some reserved key words like vars, tags, hosts, connection, name etc..
+we can't use them directly as user defined.
+In program 3, if we use tags with same indentation of vars then we will get error.
+
+To convert from string to list --> we use split filter
+To convert from List to dictinary or map --> we use dict2items
+
+
+
+
+
