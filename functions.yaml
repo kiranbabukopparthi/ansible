@@ -63,7 +63,7 @@
       name: ansible
       project: roboshop
       component: catalogue
-    tagslits: [
+    tagslist: [
         {
             "key": "name",
             "value": "ansible"
