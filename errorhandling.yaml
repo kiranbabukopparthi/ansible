@@ -1,11 +1,34 @@
+# program-1
+
+# - name: Demo on error handling
+#   hosts: local
+#   connection: local
+#   tasks:
+#   - name: check user exist or not
+#     ansible.builtin.command: id roboshop
+#     register: user_output
+
+#   - name: print the output
+#     ansible.builtin.debug:
+#       msg: "{{ user_output }}"
+
+
+# program-2
+
 - name: Demo on error handling
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: check user exist or not
     ansible.builtin.command: id roboshop
     register: user_output
+    ignore_errors: true
 
   - name: print the output
     ansible.builtin.debug:
       msg: "{{ user_output }}"
+
+  - name: create user
+    ansible.builtin.command: useradd roboshop
+    when: user_output.rc != 0
