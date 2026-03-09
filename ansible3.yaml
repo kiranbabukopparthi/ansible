@@ -6,6 +6,116 @@ Here by default it will take sudo access.
 we can access the variables using arguments
 refer playbook9.YAML
 Here we haven't given NAME variable anywhere in the playbook or inventory or in any file.
-Here we are trying to take the variable in run time from user
+Here we are trying to take the variable in run time from user.
 
-command below
+use command below
+ansible-playbook -i inventory.ini -e NAME=kiran playbook9.yaml
+
+if we have variables in all areas like play level, task level, inventory, files, promt, giving in run time.
+which will be prsfered first in ansible.
+refer playbook10.yaml
+
+Here the highest preference for the variables
+1. args or given at run time
+2. Task level
+3. File
+4. prompt
+5. Play level
+6. inventory
+
+If the variable is not available in these, then we will get undefined variable error
+
+
+
+
+
+
+DATATYPES
+Refer datatypes.yaml
+String, Number, bool, Map/directory, List
+
+
+CONDITIONS
+Refer conditions.YAML
+conditions are actually used to varify whether to run the task or not in ansible
+
+Here indentation is important
+- name: Demo on conditions
+  hosts: local
+  connection: local
+  vars:
+    IS_LIVE: true
+  tasks:
+  - name: check live or not
+    ansible.builtin.debug:
+      msg: "Yes, it is Live"
+    when: IS_LIVE
+
+Here when will be executed, if it is true then the msg will be printed
+
+
+when ansible script is running or connection to a server,
+we are getting gathering facts in the display. This is because of ansible is accessing all the required essentials
+we can see that ansible gathering facts.
+refer conditions.yaml
+
+Ansible will store all the gathering facts in ansible_facts variable.
+we can directy access this variables {{ ansible_facts }}
+
+we can see that gathering facts and verify whether the 
+package manager is redhat or ububtu
+refer conditions.yaml program-3
+
+
+
+Shell vs Ansible
+No tool is capable of 100 percent automation. If we consider ansible,
+and it doens't have modules or collections.
+Then ansible give two options
+1. ansible command module
+2. ansible shell module
+
+
+ansible.builtin.command  vs  ansible.builtin.shell
+
+comnand module
+simple commands, you can execute
+you can't get complete shell enviornment of the remote server.
+More secure than shell module
+Redirections and piping won't work here
+
+shell module
+complex script, you can execute here
+you will get complete shell enviornment of the remote server.
+Less secure than command module
+Redirections and piping will work here
+
+Refer playbook11.yaml
+
+Register is a predefined or system defined variable to store the output
+it will be for dynamic data.
+
+
+
+
+LOOPS
+keyword for using Loops is Loop itself
+Earlier it is with_items but now it is updated to Loop
+Refer loops.yaml
+
+item is the keyword to access the values in the loop.
+item keyword is given by ansible.
+
+
+Functions
+refer functions.yaml
+Function is nothing but doing a specifc tash whenever it is called.
+In ansible we don't have user defined functions.
+All the functions are pre defined. If we want customize the functions in ansible, we need to do it in python
+Here functions can be called as filters
+For data manipulation, filters will be used.
+
+filter syntax
+VAR_NAME | FILTER_NAME
+
+Here VAR_NAME is input for FILTER_NAME
