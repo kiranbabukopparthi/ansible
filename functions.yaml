@@ -58,6 +58,7 @@
   hosts: local
   connection: local
   vars:
+    course: "DevOps with AWS"
     topics: linux, shell, ansible, terraform
     tagsmap:
       name: ansible
@@ -102,3 +103,13 @@
   - name: convert yaml to json
     ansible.builtin.debug:
       msg: "{{ student_yaml | to_nice_json }}"
+
+  
+  - name: convert lower to upper
+    ansible.builtin.debug:
+      msg: "{{ course | upper }}"
+
+  
+  - name: convert upper to lower
+    ansible.builtin.debug:
+      msg: "{{ course | lower }}"

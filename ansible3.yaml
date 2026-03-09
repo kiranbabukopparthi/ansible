@@ -155,3 +155,6 @@ and from_yaml filter will assign it to student_yaml variable
 
 
 
+To look for a file, we use lookup
+we convert from yaml to json we use to_nice_json
+
