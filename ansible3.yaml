@@ -137,7 +137,21 @@ In program 3, if we use tags with same indentation of vars then we will get erro
 To convert from string to list --> we use split filter
 To convert from List to dictinary or map --> we use dict2items
 
+we can convert yaml to json in ansible
+we already have a yaml file
+1. take yaml into a variable
+2. then convert that variable to json
 
+
+To read the data dynamically we use module called ansible.builtin.set_fact
+ansible.builtin.set_fact
+This builtin is used to set the variable dynamically.
+
+There is a command called lookup
+This is used to find the file 
+student_yaml: {{ lookup('file', students.yaml) | from_yaml }} 
+here lookup will see for the students.yaml file 
+and from_yaml filter will assign it to student_yaml variable
 
 
 
